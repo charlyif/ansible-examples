@@ -1,0 +1,18 @@
+---
+- name: Just sleep playbook
+  hosts: localhost
+  gather_facts: false
+  vars:
+    sleeping_time: 30
+
+  tasks:
+    - name: I'm so tired
+      ansible.builtin.meta: noop
+
+    - name: Going to sleep for {{ sleeping_time }} seconds
+      ansible.builtin.pause:
+        seconds: "{{ sleeping_time }}"
+
+    - name: Awake now!!
+      ansible.builtin.meta: noop
+...
